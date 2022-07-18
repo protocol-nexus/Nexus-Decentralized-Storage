@@ -32,8 +32,9 @@ var (
 
 // MsgHandler
 type MsgHandler struct {
-	message msg.RelayMsgBuf
-	handler core.HandlerFunc
+	message   msg.RelayMsgBuf
+	handler   core.HandlerFunc
+	generator core.RandFunc
 }
 
 type (
