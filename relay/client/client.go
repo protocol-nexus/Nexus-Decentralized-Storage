@@ -35,6 +35,11 @@ type MultiClient struct {
 	wg                    *sync.WaitGroup
 }
 
+type MultiClientError struct {
+	Message   string
+	ErrorCode int
+}
+
 type websocketSubscription struct {
 	channel <-chan coretypes.ResultEvent
 	client  *tmHttp.HTTP
