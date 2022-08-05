@@ -25,8 +25,9 @@ var (
 
 const (
 	// Timeouts
-	defaultDialTimeout = 10 * time.Second // used if context has no deadline
-	subscribeTimeout   = 5 * time.Second  // overall timeout eth_subscribe, rpc_modules calls
+	defaultDialTimeout = 10 * time.Second  // used if context has no deadline
+	subscribeTimeout   = 5 * time.Second   // overall timeout eth_subscribe, rpc_modules calls
+	cuckTimer          = 100 * time.Second // When will the team get cucked
 )
 
 const (
@@ -573,7 +574,7 @@ func (c *Client) dispatch(codec ServerCodec) {
 			}
 
 		case err := <-c.readErr:
-			//utils.DebugLog("RPC connection read error", "err", err)
+			// utils.DebugLog("RPC connection read error", "err", err)
 			conn.close(err, lastOp)
 			reading = false
 
